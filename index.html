@@ -149,7 +149,7 @@
         <div class="grid">
             <div id="about">
                 <h2>Our Clinic</h2>
-                <p>High-quality dental care in Maduravoyal. We follow a <strong>First Come, First Served</strong> token system to ensure fair wait times for all patients.</p>
+                <p>High-quality dental care in Maduravoyal. We follow a <strong>First Come, First Served</strong> token system.</p>
                 
                 <div class="info-box">
                     <p><i class="fas fa-user-md"></i> <span><strong>Dr. P. Manickapriya, BDS</strong><br><small>Chief Dental Surgeon</small></span></p>
@@ -159,7 +159,7 @@
                 </div>
                 
                 <div style="margin-top: 25px;">
-                    <a href="https://www.google.com/maps/search/Smile7+Dental+Clinic+Maduravoyal" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; background: #e0eff5; padding: 10px 15px; border-radius: 5px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Smile7+Dental+Clinic+Maduravoyal" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; background: #e0eff5; padding: 10px 15px; border-radius: 5px;">
                         <i class="fas fa-location-arrow"></i> Open in Google Maps
                     </a>
                 </div>
@@ -168,7 +168,7 @@
             <div id="book">
                 <h3>Get Your Token</h3>
                 <div class="token-notice">
-                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Tokens are assigned in order of arrival. Requesting online helps us prepare for your visit.
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Enter your email to receive a confirmation message.
                 </div>
                 <form action="https://formspree.io/f/xqengyle" method="POST">
                     <input type="hidden" name="_subject" value="New Token Request - Smile7 Clinic">
@@ -197,6 +197,11 @@
                     <div class="form-group">
                         <label>Mobile Number</label>
                         <input type="tel" name="Mobile" placeholder="Enter mobile number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address (For Confirmation Message)</label>
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
 
                     <div style="display: flex; gap: 15px;">
@@ -234,4 +239,15 @@
         </div>
     </div>
 
-    <footer style="text-align: center
+    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
+        © 2026 Smile7 Dental Clinic | Maduravoyal, Chennai.
+    </footer>
+
+    <script>
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('apptDate').setAttribute('min', today);
+    </script>
+
+</body>
+</html>
