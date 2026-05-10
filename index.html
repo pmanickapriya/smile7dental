@@ -20,6 +20,7 @@
             line-height: 1.6;
             color: #333;
             background-color: var(--light);
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -39,6 +40,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary);
+            text-decoration: none;
         }
 
         .nav-links a {
@@ -62,9 +64,9 @@
         .hero h1 { font-size: 3rem; margin-bottom: 10px; }
         .hero p { font-size: 1.2rem; margin-bottom: 30px; }
 
-        /* Appointment Form */
+        /* Container & Grid */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: -50px auto 50px;
             background: white;
             padding: 40px;
@@ -74,105 +76,140 @@
 
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 40px;
         }
 
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .container { margin-top: 20px; width: 90%; padding: 20px; }
+            .hero h1 { font-size: 2.2rem; }
         }
 
+        /* Form Styling */
         .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input, select, textarea {
+        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+        input, select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            border: 1px solid #ddd;
             border-radius: 5px;
             box-sizing: border-box;
+            font-size: 1rem;
         }
 
         .btn {
             background: var(--primary);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 25px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: bold;
             transition: 0.3s;
+            width: 100%;
+            text-transform: uppercase;
         }
 
         .btn:hover { background: var(--dark); }
 
-        .info-box i { color: var(--primary); margin-right: 10px; }
+        .info-box { background: #f0f7fa; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .info-box p { margin: 10px 0; display: flex; align-items: flex-start; }
+        .info-box i { color: var(--primary); margin-right: 15px; margin-top: 5px; width: 20px; }
+        
+        h2, h3 { color: var(--dark); margin-top: 0; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><i class="fas fa-tooth"></i> Smile7 Dental</div>
+        <a href="#" class="logo"><i class="fas fa-tooth"></i> Smile7 Dental</a>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#book">Book Now</a>
+            <a href="#about">Clinic Info</a>
+            <a href="#book">Book Appointment</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Smile7 Dental Clinic</h1>
-        <p>Gentle Care for Every Smile | Led by <strong>Dr. P. Manickapriya, BDS</strong></p>
-        <a href="#book" class="btn">Request Appointment</a>
+        <p>Expert Care by <strong>Dr. P. Manickapriya, BDS</strong></p>
+        <a href="#book" class="btn" style="width: auto; display: inline-block; padding: 12px 40px;">Book Now</a>
     </header>
 
     <div class="container">
         <div class="grid">
             <div id="about">
-                <h2>Welcome to Smile7</h2>
-                <p>At Smile7 Dental Clinic, <strong>Dr. P. Manickapriya</strong> and her team are dedicated to providing the highest quality dental care in a comfortable and friendly environment.</p>
+                <h2>Our Clinic</h2>
+                <p>Welcome to <strong>Smile7 Dental Clinic</strong>. Dr. P. Manickapriya provides comprehensive dental solutions using the latest technology in a hygienic and friendly environment.</p>
                 
                 <div class="info-box">
-                    <p><i class="fas fa-user-md"></i> <strong>Chief Dentist:</strong> Dr. P. Manickapriya, BDS</p>
-                    <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon - Sat: 9:00 AM - 8:00 PM</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Dental Street, Your City</p>
-                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-user-md"></i> <span><strong>Dr. P. Manickapriya, BDS</strong><br><small>Chief Dental Surgeon</small></span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span>Shop No 2, Alapakkam main road,<br>Maduravoyal, Chennai 600095</span></p>
+                    <p><i class="fas fa-clock"></i> <span>Mon - Sat: 10:00 AM - 8:30 PM<br>Sun: By Appointment</span></p>
+                    <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <a href="https://www.google.com/maps/search/Smile7+Dental+Clinic+Maduravoyal+Chennai" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">
+                        <i class="fas fa-directions"></i> Get Directions on Google Maps
+                    </a>
                 </div>
             </div>
 
             <div id="book">
-                <h3>Book an Appointment</h3>
-                <form action="#">
+                <h3>Request an Appointment</h3>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="Enter your name" required>
+                        <label>Patient Name</label>
+                        <input type="text" name="name" placeholder="Enter full name" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" placeholder="Enter mobile number" required>
+                        <label>Mobile Number</label>
+                        <input type="tel" name="phone" placeholder="Enter 10-digit number" required>
                     </div>
-                    <div class="form-group">
-                        <label>Preferred Date</label>
-                        <input type="date" required>
+
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Preferred Date</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Preferred Time Slot</label>
+                            <select name="timeslot" required>
+                                <option value="" disabled selected>Select Slot</option>
+                                <option>Morning (10:00 AM - 1:00 PM)</option>
+                                <option>Afternoon (2:00 PM - 5:00 PM)</option>
+                                <option>Evening (5:00 PM - 8:30 PM)</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label>Treatment Needed</label>
-                        <select>
-                            <option>General Checkup</option>
+                        <label>Treatment Required</label>
+                        <select name="treatment">
+                            <option>General Consultation</option>
+                            <option>Tooth Cleaning / Scaling</option>
+                            <option>Root Canal Treatment</option>
+                            <option>Cavity Filling</option>
+                            <option>Braces / Aligners</option>
                             <option>Teeth Whitening</option>
-                            <option>Root Canal</option>
-                            <option>Braces / Orthodontics</option>
                             <option>Other</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn">Confirm Request</button>
+
+                    <button type="submit" class="btn">Confirm Booking</button>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 10px; text-align: center;">
+                        * Our team will call you to confirm the exact timing.
+                    </p>
                 </form>
             </div>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 20px; color: #777;">
-        &copy; 2026 Smile7 Dental Clinic. All Rights Reserved.
+    <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
+        &copy; 2026 Smile7 Dental Clinic | Maduravoyal, Chennai.
     </footer>
 
 </body>
