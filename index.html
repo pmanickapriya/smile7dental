@@ -23,7 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
         nav {
             background: white;
             padding: 1rem 5%;
@@ -50,7 +49,6 @@
             font-weight: 500;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 125, 160, 0.8), rgba(1, 42, 74, 0.8)), 
                         url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -64,7 +62,6 @@
         .hero h1 { font-size: 3.2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3rem; margin-bottom: 30px; }
 
-        /* Container & Grid */
         .container {
             max-width: 1100px;
             margin: -50px auto 50px;
@@ -86,7 +83,8 @@
             .hero h1 { font-size: 2.2rem; }
         }
 
-        /* Form Styling */
+        #about, #book { scroll-margin-top: 100px; }
+
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
         input, select {
@@ -170,7 +168,7 @@
             <div id="book">
                 <h3>Get Your Token</h3>
                 <div class="token-notice">
-                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Tokens are assigned in the order of arrival at the clinic. Requesting a slot online helps us prepare for your visit.
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Tokens are assigned in order of arrival. Requesting online helps us prepare for your visit.
                 </div>
                 <form action="https://formspree.io/f/xqengyle" method="POST">
                     <input type="hidden" name="_subject" value="New Token Request - Smile7 Clinic">
@@ -178,6 +176,22 @@
                     <div class="form-group">
                         <label>Patient Name</label>
                         <input type="text" name="Patient Name" placeholder="Enter full name" required>
+                    </div>
+
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Age</label>
+                            <input type="number" name="Age" placeholder="Age" min="1" max="120" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Gender</label>
+                            <select name="Gender" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="form-group">
@@ -188,14 +202,13 @@
                     <div style="display: flex; gap: 15px;">
                         <div class="form-group" style="flex: 1;">
                             <label>Preferred Date</label>
-                            <input type="date" name="Date" required>
+                            <input type="date" id="apptDate" name="Date" required>
                         </div>
                         <div class="form-group" style="flex: 1;">
                             <label>Preferred Session</label>
                             <select name="Session" required>
                                 <option value="" disabled selected>Select Session</option>
                                 <option value="Morning">Morning (10AM - 1PM)</option>
-                                <option value="Afternoon">Afternoon (2PM - 5PM)</option>
                                 <option value="Evening">Evening (5PM - 8:30PM)</option>
                             </select>
                         </div>
@@ -221,9 +234,4 @@
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
-        © 2026 Smile7 Dental Clinic | Maduravoyal, Chennai.
-    </footer>
-
-</body>
-</html>
+    <footer style="text-align: center
