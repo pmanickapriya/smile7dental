@@ -61,8 +61,8 @@
             text-align: center;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; }
 
         /* Container & Grid */
         .container {
@@ -112,13 +112,23 @@
             text-transform: uppercase;
         }
 
-        .btn:hover { background: var(--dark); }
+        .btn:hover { background: var(--dark); transform: translateY(-2px); }
 
         .info-box { background: #f0f7fa; padding: 20px; border-radius: 8px; margin-top: 20px; }
-        .info-box p { margin: 10px 0; display: flex; align-items: flex-start; }
-        .info-box i { color: var(--primary); margin-right: 15px; margin-top: 5px; width: 20px; }
+        .info-box p { margin: 15px 0; display: flex; align-items: flex-start; }
+        .info-box i { color: var(--primary); margin-right: 15px; margin-top: 5px; width: 20px; text-align: center; }
         
-        h2, h3 { color: var(--dark); margin-top: 0; }
+        .token-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            border: 1px solid #ffeeba;
+        }
+
+        h2, h3 { color: var(--dark); margin-top: 0; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -133,83 +143,86 @@
 
     <header class="hero">
         <h1>Smile7 Dental Clinic</h1>
-        <p>Expert Care by <strong>Dr. P. Manickapriya, BDS</strong></p>
-        <a href="#book" class="btn" style="width: auto; display: inline-block; padding: 12px 40px;">Book Now</a>
+        <p>Expert Dental Care by <strong>Dr. P. Manickapriya, BDS</strong></p>
+        <a href="#book" class="btn" style="width: auto; display: inline-block; padding: 12px 40px;">Request Token</a>
     </header>
 
     <div class="container">
         <div class="grid">
             <div id="about">
                 <h2>Our Clinic</h2>
-                <p>Welcome to <strong>Smile7 Dental Clinic</strong>. Dr. P. Manickapriya provides comprehensive dental solutions using the latest technology in a hygienic and friendly environment.</p>
+                <p>High-quality dental care in Maduravoyal. We follow a <strong>First Come, First Served</strong> token system to ensure fair wait times for all patients.</p>
                 
                 <div class="info-box">
                     <p><i class="fas fa-user-md"></i> <span><strong>Dr. P. Manickapriya, BDS</strong><br><small>Chief Dental Surgeon</small></span></p>
                     <p><i class="fas fa-map-marker-alt"></i> <span>Shop No 2, Alapakkam main road,<br>Maduravoyal, Chennai 600095</span></p>
                     <p><i class="fas fa-clock"></i> <span>Mon - Sat: 10:00 AM - 8:30 PM<br>Sun: By Appointment</span></p>
-                    <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 63806 13266</p>
                 </div>
                 
-                <div style="margin-top: 20px;">
-                    <a href="https://www.google.com/maps/search/Smile7+Dental+Clinic+Maduravoyal+Chennai" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">
-                        <i class="fas fa-directions"></i> Get Directions on Google Maps
+                <div style="margin-top: 25px;">
+                    <a href="https://www.google.com/maps/search/Smile7+Dental+Clinic+Maduravoyal" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold; background: #e0eff5; padding: 10px 15px; border-radius: 5px;">
+                        <i class="fas fa-location-arrow"></i> Open in Google Maps
                     </a>
                 </div>
             </div>
 
             <div id="book">
-                <h3>Request an Appointment</h3>
+                <h3>Get Your Token</h3>
+                <div class="token-notice">
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> Tokens are assigned in the order of arrival at the clinic. Requesting a slot online helps us prepare for your visit.
+                </div>
                 <form action="https://formspree.io/f/xqengyle" method="POST">
+                    <input type="hidden" name="_subject" value="New Token Request - Smile7 Clinic">
+                    
                     <div class="form-group">
                         <label>Patient Name</label>
-                        <input type="text" name="name" placeholder="Enter full name" required>
+                        <input type="text" name="Patient Name" placeholder="Enter full name" required>
                     </div>
                     
                     <div class="form-group">
                         <label>Mobile Number</label>
-                        <input type="tel" name="phone" placeholder="Enter 10-digit number" required>
+                        <input type="tel" name="Mobile" placeholder="+91 63806 13266" required>
                     </div>
 
                     <div style="display: flex; gap: 15px;">
                         <div class="form-group" style="flex: 1;">
                             <label>Preferred Date</label>
-                            <input type="date" name="date" required>
+                            <input type="date" name="Date" required>
                         </div>
                         <div class="form-group" style="flex: 1;">
-                            <label>Preferred Time Slot</label>
-                            <select name="timeslot" required>
-                                <option value="" disabled selected>Select Slot</option>
-                                <option>Morning (10:00 AM - 1:00 PM)</option>
-                                <option>Afternoon (2:00 PM - 5:00 PM)</option>
-                                <option>Evening (5:00 PM - 8:30 PM)</option>
+                            <label>Preferred Session</label>
+                            <select name="Session" required>
+                                <option value="" disabled selected>Select Session</option>
+                                <option value="Morning">Morning (10AM - 1PM)</option>
+                                <option value="Afternoon">Afternoon (2PM - 5PM)</option>
+                                <option value="Evening">Evening (5PM - 8:30PM)</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Treatment Required</label>
-                        <select name="treatment">
+                        <label>Treatment Type</label>
+                        <select name="Treatment">
                             <option>General Consultation</option>
-                            <option>Tooth Cleaning / Scaling</option>
-                            <option>Root Canal Treatment</option>
-                            <option>Cavity Filling</option>
-                            <option>Braces / Aligners</option>
+                            <option>Cleaning / Scaling</option>
+                            <option>Root Canal</option>
+                            <option>Braces</option>
                             <option>Teeth Whitening</option>
-                            <option>Other</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn">Confirm Booking</button>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 10px; text-align: center;">
-                        * Our team will call you to confirm the exact timing.
+                    <button type="submit" class="btn">Request Token Slot</button>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">
+                        For urgent queries, call: <strong>63806 13266</strong>
                     </p>
                 </form>
             </div>
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 30px; color: #888; font-size: 0.9rem;">
-        &copy; 2026 Smile7 Dental Clinic | Maduravoyal, Chennai.
+    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
+        © 2026 Smile7 Dental Clinic | Maduravoyal, Chennai.
     </footer>
 
 </body>
